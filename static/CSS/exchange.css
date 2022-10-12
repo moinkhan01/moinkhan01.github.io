@@ -1,0 +1,39 @@
+.exchange{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.connect-exc-form{
+    width: 60%;
+    border-radius: 20px;
+    margin: 50px 30px 50px 60px;
+    padding: 40px;
+    display: flex;
+    background-color: rgba(219, 241, 241, 0.356);
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(2px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.192);
+    
+}
+
+.connect-exc-form form{
+    width: 100%;
+}
+
+.connect-exc-form form .form_field{
+    /* display: block; */
+    width: 90%;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 50px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    border: none;
+    outline: none;
+}
+
+.connect-exc-form form label{
+    margin-left: 10px;
+}

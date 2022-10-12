@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/CSS/login.css">
+    <link rel="stylesheet" href="../static/CSS/style.css">
+    <title>Login</title>
+</head>
+<body>
+
+    <section class="background" >
+        <div class="div1"></div>
+        <div class="div2"></div>
+
+        <div class="login-form-container">
+            <div class="text-details">
+
+                
+                <img class="bot-logo" src="../static/images/botLOGO.png" alt="">
+                <h2>Stocks Trading Bot</h2>
+                <p>Email : sumitgautam0101@gmail.com</p>
+                <p>Contact No. : 8285716574 </p>
+
+            </div>
+            <div class="login-form">
+
+                <form action="/" method="post">
+                    <h2>
+                        Log in
+                    </h2>
+                    <div class="form-row">
+
+                        <label for="email">Email</label>
+                        <br>
+                        <input name="email" id="email" type="email" placeholder="eg. saurabh@gmail.com">
+
+                    </div>
+                    
+                    <div class="form-row">
+
+                        <label for="password">Password</label>
+                        <br>
+                        <input name="password" id="password" type="password" placeholder="password">
+
+                    </div>
+
+                    <div class="form-row">
+                        <button class="btn">Submit</button>
+                    </div>
+                    <div class="form-row login-err-flash">
+                        {% if flash_msg[0] == True %}
+                        <p>{{flash_msg[1]}}</p>
+                        {% endif %}
+                    </div>
+
+
+                </form>
+
+            </div>
+        </div>
+
+        
+    </section>
+    
+</body>
+</html>

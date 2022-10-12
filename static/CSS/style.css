@@ -1,0 +1,108 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    list-style-type: none;
+}
+
+:root {
+    --primary : #E23E57;
+    --secondary : #240b36;
+    --bg : #311D3F;
+    --bg-layer : #522546;
+}
+
+h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body{
+    background: #c31432;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #240b36, #9b1441); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
+.page-heading{
+    color: #fff;
+}
+.bots-heading{
+    margin-bottom: 35px;
+}
+
+.btn{
+    border: none;
+    padding: 14px 40px;
+    font-size: 18px;
+    border-radius: 50px;
+    background-color: var(--secondary);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.199);
+    color: #fff;
+}
+
+
+.btn:hover{
+    background-color: var(--primary);
+}
+
+.navbar{
+
+    background-color: var(--bg);
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 18px 60px;
+    margin: 30px 30px;
+    border-radius: 20px;
+
+}
+
+.navbar .logo{
+    color: #fff;
+}
+
+.navbar ul li{
+    display: inline-block;
+    margin: 10px 20px;
+    background-color: var(--bg-layer);
+    padding: 6px 12px;
+    border-radius: 40px;
+
+}
+
+.navbar ul li a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.bt-result{
+    padding: 60px;
+}
+
+@media (max-width:720px) {
+
+
+    .navbar{
+        display: flex;
+        justify-content: space-evenly;
+        padding: 8px 20px;
+    }
+
+
+    .navbar .logo{
+        font-size: 10px;
+    }
+
+    .navbar ul{
+        display: flex;
+    }
+
+    .navbar ul li{
+        display: block;
+        font-size: 10px;
+        margin: 6px 4px;
+    }
+
+
+}

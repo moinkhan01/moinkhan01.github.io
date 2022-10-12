@@ -1,0 +1,126 @@
+{% extends "./partials/headerBody.html" %}
+
+{% block title%} 
+Dashboard 
+{% endblock %}
+
+{% block body %}
+
+    <div class="dashboard">
+
+        <div class="main-panel">
+
+            <div class="new-bot">
+
+                <center><h1 class="page-heading">Setup a new Bot</h1></center>
+
+                <form action="{{ url_for('dashboard') }}" method="post">
+
+
+                    <div class="form-row">
+
+                        
+                        <div class="form-column">
+
+                            <label for="scrip_name">Trading Pair</label><br>
+
+                            <select name="scrip_name" id="scrip_name">
+                                {% for pair in usdt_pairs %}
+
+                                <option value="{{pair}}">{{pair}}</option>
+
+                                {% endfor %}
+                            </select>
+                        
+                    
+                        </div>
+
+                        <div class="form-column">
+                            <label for="amount">Buy/Sell Amount</label><br>
+                            <input value="20" required type="text" name="qty" id="qty">
+                        </div>
+
+                        
+
+                    </div>
+
+                    <div class="form-row">
+                        
+
+                        
+
+                        <div class="form-column">
+                            <label for="leverage">Leverage</label><br>
+                            <select name="leverage" id="leverage">
+
+                                <option value="1">1x</option>
+                                <option value="2">2x</option>
+                                <option value="5">5x</option>
+                                <option value="20">20x</option>
+                                <option value="50">50x</option>
+                                <option value="100">100x</option>
+
+                            </select>
+                        </div>
+
+                        <div class="form-column">
+                            <label for="timeframe">Timeframe</label><br>
+
+                            <select name="timeframe" id="timeframe">
+
+                                <option value="1m">1m</option>
+                                <option value="5m">5m</option>
+                                <option value="10m">10m</option>
+                                <option value="15m">15m</option>
+                                <option value="30m">30m</option>
+                                <option value="1h">1h</option>
+                                <option value="4h">4h</option>
+                                <option value="12h">12h</option>
+
+                            </select>
+                            
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-row">
+                        
+                        <div class="form-column">
+                            <label for="exch">Exchange</label><br>
+                            <input disabled value="Currency.com" required type="text" name="exch" id="exch">
+                        </div>
+
+                        <div class="form-column">
+                            <label for="buy-type">Buy Type</label><br>
+                            <select name="buy-type" id="buy-type">
+
+                                <option value="percent">Percent Wallet</option>
+                                <option value="manual">Manual Amount</option>
+
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                    <div class="button-row">
+   
+                        <button type="submit" class="btn">Start Bot</button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+{% endblock %}
+
+

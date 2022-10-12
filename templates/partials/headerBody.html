@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/CSS/style.css">
+    <link rel="stylesheet" href="../static/CSS/dashboard.css">
+    <link rel="stylesheet" href="../static/CSS/exchange.css">
+    <link rel="stylesheet" href="../static/CSS/orders.css">
+    <title>
+        {% block title%}
+
+        {% endblock %}
+    </title>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">
+            <h1>TV Binance BOT</h1>
+        </div>
+
+        <div class="menu">
+
+            <ul>
+                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                <li><a href="{{ url_for('bots') }}">Bots</a></li>
+                <li><a href="{{ url_for('recent_orders') }}">Orders</a></li>
+                <li><a href="{{ url_for('exchange') }}">Exchange</a></li>
+                
+            </ul>
+
+        </div>
+    </div>
+    
+    
+    {% block body %}
+
+    {% endblock %}
+    
+</body>
+
+<script src="../../static/JS/script.js"></script>
+</html>

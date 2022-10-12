@@ -1,0 +1,143 @@
+{% extends "./partials/headerBody.html" %}
+
+{% block title%} 
+Bots
+{% endblock %}
+
+{% block body %}
+
+    <div class="dashboard">
+
+        <div class="main-panel">
+            <div class="current-scrips">
+
+                <center>
+
+                <h1 class="page-heading scrips-heading" >Recent Orders </h1>
+
+                </center>
+
+                {% for order in orders %}
+
+                <div class="live-scrip">
+                    
+                    <div class="scrip-row">
+
+                        <p class="square-data">LOCAL ID : {{order["_id"]}}</p>
+                        <p class="square-data">ORDER ID : {{order['orderId']}}</p>
+                        <p class="square-data">SYMBOL : {{order['symbol']}}</p>
+                        <p class="square-data">TRADE SIDE : {{order['side']}}</p>
+                        <p class="square-data">STATUS : {{order['status']}}</p>
+                        
+
+                        
+                        
+                    </div>
+                    
+
+
+                    <div class="scrip-row">
+
+                        <p class="square-data">FILL PRICE : {{order['price']}}</p>
+                        <p class="square-data">VOLUME : {{order['origQty']}}</p>
+                        <p class="square-data">TIMEZONE : {{order['timeInForce']}}</p>
+                        <p class="square-data">TIMESTAMP : {{order['transactTime']}}</p>
+
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+                
+                
+
+                
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+    <style>
+
+        .process-btn.btn{
+            width: 300px;
+            background-color: rgb(39, 210, 47);
+            cursor: pointer;
+        }
+
+        .process-btn.btn:hover{
+            width: 300px;
+            background-color: rgb(18, 172, 26);
+        }
+
+        .process-form{
+            position: fixed;
+            margin: auto;
+            top: 0; bottom : 0; left : 0; right : 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.199);
+            border-radius: 20px;
+            height: 40vh;
+            width: 50%;
+            display: none;
+
+        }
+
+        .continueProcessBtn{
+
+            cursor: pointer;
+        }
+        
+    </style>
+
+    <script>
+
+
+        const processBtn = document.querySelectorAll(".process-btn");
+
+        const continueProcessBtn = document.querySelector(".continueProcessBtn");
+
+        const stopProcess = document.querySelector(".stopAction");
+
+        const processForm = document.querySelector(".process-form");
+
+        processBtn.forEach(btn => {
+
+            btn.addEventListener("click", function(){
+
+                processForm.style.display = "flex";
+                bot_id = btn.value
+                continueProcessBtn.value = bot_id
+            })
+            
+        });
+
+        // alert(processBtn)
+
+        stopProcess.addEventListener("click", function() {
+
+            processForm.style.display = "none";
+        } )
+
+    </script>
+
+
+
+{% endblock %}
+
+
+
+

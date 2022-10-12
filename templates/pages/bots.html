@@ -1,0 +1,183 @@
+{% extends "./partials/headerBody.html" %}
+
+{% block title%} 
+Bots
+{% endblock %}
+
+{% block body %}
+
+    <div class="dashboard">
+
+        <div class="main-panel">
+            <div class="current-scrips">
+
+                <h1 class="page-heading scrips-heading" >Manage Bots</h1>
+
+                {% for bot in bots %}
+
+                <div class="live-scrip">
+                    
+                    <div class="scrip-row">
+
+
+                        <p class="square-data">Bot ID : {{bot['_id']}}</p>
+                        <p class="square-data">Name : {{bot['scrip_name']}}</p>
+                        <p class="square-data">Qty : {{bot['amount']}}</p>
+                        <p class="square-data">Exchange : Currency.com</p>
+                        <p class="square-data">Market : Futures</p>
+
+                        
+                    </div>
+                    
+
+
+                    <div class="scrip-row">
+
+                        
+                        <p class="square-data">Leverage : {{bot['leverage']}}</p>
+                        <p class="square-data">Timeframe : {{bot['timeframe']}}</p>
+                        <p class="square-data">Buy Type : {{bot['buy-type'].upper()}}</p>
+
+                        {% if bot["process"] == 'stop'  %}
+
+                        <button type="button" name="start_stop_btn" value="{{bot['_id']}}" class="btn process-btn">Start Bot Process</button>
+                            
+                        {% elif bot["process"] == 'running' %}
+
+                        <button style="background-color: red;" type="button" name="start_stop_btn" value="{{bot['_id']}}" class="btn process-btn">Stop Bot Process</button>
+
+                        {% endif %}
+
+                    </div>
+
+
+                        <button name="terminatescripBtn" value="{{bot['_id']}}" class="btn terminatescripBtn">Terminate & Remove</button>
+                    
+                    
+                </div>
+
+                {% endfor %}
+
+                
+                
+
+                
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="confirmWindow">
+        <h2>Please confirm scrip Removal</h2>
+        
+        <div class="terminationForm">
+
+            <form action="{{ url_for('bots') }}" method="post">
+
+                <button type="button" class="btn stopTermination">Go back</button>
+                <button style="background-color: var(--primary);" type="submit" name="scripID" value="" class="btn continueBtn">Confirm</button>
+            </form>
+            
+           
+        </div>
+
+       
+    </div>
+
+    <div class="process-form">
+
+        <h2>Please confirm your Action</h2>
+        <br>
+        <br>
+
+        <form action="{{url_for('start_bot')}}" method="post">
+
+            <button type="button" class="btn stopAction">Go back</button>
+            <button style="background-color: var(--primary);" type="submit" name="botID" value="" class="btn continueProcessBtn">Confirm</button>
+
+
+        </form>
+
+    </div>
+
+
+    <style>
+
+        .process-btn.btn{
+            width: 300px;
+            background-color: rgb(39, 210, 47);
+            cursor: pointer;
+        }
+
+        .process-btn.btn:hover{
+            width: 300px;
+            background-color: rgb(18, 172, 26);
+        }
+
+        .process-form{
+            position: fixed;
+            margin: auto;
+            top: 0; bottom : 0; left : 0; right : 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.199);
+            border-radius: 20px;
+            height: 40vh;
+            width: 50%;
+            display: none;
+
+        }
+
+        .continueProcessBtn{
+
+            cursor: pointer;
+        }
+        
+    </style>
+
+    <script>
+
+
+        const processBtn = document.querySelectorAll(".process-btn");
+
+        const continueProcessBtn = document.querySelector(".continueProcessBtn");
+
+        const stopProcess = document.querySelector(".stopAction");
+
+        const processForm = document.querySelector(".process-form");
+
+        processBtn.forEach(btn => {
+
+            btn.addEventListener("click", function(){
+
+                processForm.style.display = "flex";
+                bot_id = btn.value
+                continueProcessBtn.value = bot_id
+            })
+            
+        });
+
+        // alert(processBtn)
+
+        stopProcess.addEventListener("click", function() {
+
+            processForm.style.display = "none";
+        } )
+
+    </script>
+
+
+
+{% endblock %}
+
+
+
+
